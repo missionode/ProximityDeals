@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Coupon QR — Proximity Deals</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="manifest" href="manifest.webmanifest"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body class="min-h-screen">
+  <div id="app-shell"></div>
+  <main class="mx-auto max-w-3xl p-4 md:p-6 space-y-6">
+    <section class="card space-y-4" role="dialog" aria-modal="true">
+      <div class="flex items-center justify-between">
+        <h1 class="text-xl md:text-2xl font-bold">Coupon QR</h1>
+        <a href="index.html" class="btn-ghost">Close</a>
+      </div>
+      <p id="title" class="text-lg font-semibold"></p>
+      <div class="grid place-items-center">
+        <img id="qrImg" class="w-60 h-60 rounded-2xl shadow bg-white dark:bg-slate-900" alt="Coupon QR"/>
+      </div>
+      <textarea id="payload" class="input" rows="4" readonly></textarea>
+      <div class="flex gap-2">
+        <button id="copyBtn" class="btn-ghost">Copy</button>
+        <a href="scan.html" class="btn-primary">Open Scanner</a>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="js/coupon-qr.js"></script>
+  <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js');}</script>
+</body>
+</html>

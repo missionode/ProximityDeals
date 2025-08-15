@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Appeals — Proximity Deals</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="manifest" href="manifest.webmanifest"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body class="min-h-screen">
+  <div id="app-shell"></div>
+  <main class="mx-auto max-w-3xl p-4 md:p-6 space-y-6">
+    <section class="card space-y-4" role="region" aria-label="Create Appeals">
+      <h1 class="text-xl md:text-2xl font-bold">Appeals</h1>
+      <div id="appealCreate" class="space-y-3"></div>
+    </section>
+    <section class="card space-y-4" role="region" aria-label="Submitted Appeals">
+      <h2 class="text-lg font-semibold">Submitted</h2>
+      <div id="appealList" class="space-y-3"></div>
+    </section>
+  </main>
+  <script type="module" src="js/appeals.js"></script>
+  <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js');}</script>
+</body>
+</html>

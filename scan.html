@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Scan & Redeem — Proximity Deals</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="manifest" href="manifest.webmanifest"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body class="min-h-screen">
+  <div id="app-shell"></div>
+  <main class="mx-auto max-w-3xl p-4 md:p-6 space-y-6">
+    <section class="card space-y-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <span class="kicker">Redeem</span>
+          <h1 class="text-xl md:text-2xl font-bold mt-1">Scan Coupon QR</h1>
+        </div>
+        <a href="index.html" class="btn-ghost">Close</a>
+      </div>
+      <div id="permHelp" class="hidden text-sm text-rose-600">Camera unavailable. Allow camera permission in your browser settings or paste payload below.</div>
+      <video id="video" class="w-full rounded-2xl bg-black aspect-video card-hover" aria-label="Scanner video"></video>
+      <div class="flex gap-2">
+        <input id="manualCode" class="input" placeholder='{"type":"coupon","coupon_id":"<id>","nonce":"...","issued_at":...,"exp_at":...,"sig":"..."}'/>
+        <button id="redeemManual" class="btn-primary">Redeem</button>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="js/scanner.js"></script>
+  <script>if('serviceWorker' in navigator){navigator.serviceWorker.register('/sw.js');}</script>
+</body>
+</html>

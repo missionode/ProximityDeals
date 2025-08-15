@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Preferences — Proximity Deals</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body class="min-h-screen">
+  <div id="app-shell"></div>
+  <main class="mx-auto max-w-3xl p-4 md:p-6 space-y-6">
+    <section class="card space-y-5">
+      <div>
+        <span class="kicker">Settings</span>
+        <h1 class="text-xl md:text-2xl font-bold mt-1">Preferences</h1>
+      </div>
+
+      <div class="space-y-2">
+        <label class="label">Backup & Restore</label>
+        <div class="flex flex-col md:flex-row gap-2">
+          <input id="filename" class="input md:flex-1" placeholder="proximity-deals-backup.json"/>
+          <button id="backupBtn" class="btn-primary">Export JSON</button>
+          <label class="btn-ghost cursor-pointer">
+            Import JSON<input id="importInput" type="file" accept="application/json" class="hidden"/>
+          </label>
+          <button id="forgetBtn" class="btn-ghost">Forget backup</button>
+        </div>
+        <p class="text-xs text-slate-500 dark:text-slate-400">Export saves all app data (users, coupons, redemptions, flags, charges, referrals).</p>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <input id="autoToggle" type="checkbox" class="h-4 w-4"/>
+        <label for="autoToggle" class="label">Auto-save snapshot locally every 15s</label>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <button id="themeBtnPrefs" class="btn-ghost">Toggle Dark Mode</button>
+        <span class="text-sm text-slate-600 dark:text-slate-300">You can also use the header toggle.</span>
+      </div>
+    </section>
+  </main>
+  <script type="module">
+    import { mountChrome, toggleTheme } from './js/ui.js';
+    import './js/app.js';
+    mountChrome('prefs');
+    document.getElementById('themeBtnPrefs').addEventListener('click', toggleTheme);
+  </script>
+</body>
+</html>
